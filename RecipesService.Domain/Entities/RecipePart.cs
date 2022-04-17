@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RecipesService.Repository.Entities
+namespace RecipesService.Domain.Entities
 {
     public sealed class RecipePart
     {
