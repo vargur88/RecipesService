@@ -8,5 +8,6 @@ namespace RecipesService.Repository.Interfaces
 	public interface IRecipesRepository
 	{
 		Task<IReadOnlyList<Recipe>> GetRecipes(CancellationToken cancellationToken);
+		Task<IReadOnlyList<Category>> GetCategory(CancellationToken cancellationToken);
 	}
 }

@@ -11,7 +11,7 @@ namespace RecipesService.Domain.Entities
 
         public string Directions { get; set; }
 
-        public IList<Category> Categories { get; set; }
+        public IList<Guid> Categories { get; set; }
 
         public IList<RecipePart> RecipeParts { get; set; }
     }
