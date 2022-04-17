@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RecipesService.Handlers.Recipes.GetRecipes;
 using System.Threading.Tasks;
 
 namespace RecipesService.Application.Controllers
@@ -6,9 +7,15 @@ namespace RecipesService.Application.Controllers
 	public class RecipesController : BaseApiController
 	{
 		[HttpGet]
-		public async Task<IActionResult> GetRecipes()
+		public async Task<IActionResult> GetRecipes(/*[FromBody]GetRecipesRequest request*/)
 		{
-			return Ok();
+			var response = await Mediator.Send(new GetRecipesRequest());
+			if (response == null)
+			{
+				return NoContent();
+			}
+
+			return Ok(response);
 		}
 	}
 }

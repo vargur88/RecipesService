@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
 
 namespace RecipesService.Application.Controllers
 {
@@ -6,5 +8,8 @@ namespace RecipesService.Application.Controllers
     [ApiController]
     public class BaseApiController : Controller
     {
+        private ISender _mediatr;
+
+        protected ISender Mediator => _mediatr ??= HttpContext.RequestServices.GetService<ISender>();
     }
 }

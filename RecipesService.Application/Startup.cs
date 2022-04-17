@@ -4,6 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using MediatR;
+using RecipesService.Handlers.GetRecipes;
+using RecipesService.Repository.Interfaces;
+using RecipesService.Repository.InMemoryRepository;
 
 namespace RecipesService.Application
 {
@@ -12,6 +16,8 @@ namespace RecipesService.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().AddApiExplorer();
+            services.AddSingleton<IRecipesRepository, RecipesRepositoryInMemory>();
+            services.AddMediatR(typeof(GetRecipesHandler).Assembly);
 
             services.AddSwaggerGen(c =>
             {
