@@ -33,6 +33,41 @@ namespace RecipesService.Application.Extensions
                     UniqueId = Guid.NewGuid()
                 }, System.Threading.CancellationToken.None);
 
+            categoriesRepo.CreateCategory(
+                new Category()
+                {
+                    CategoryName = "Microwave",
+                    UniqueId = Guid.NewGuid()
+                }, System.Threading.CancellationToken.None);
+
+            categoriesRepo.CreateCategory(
+                new Category()
+                {
+                    CategoryName = "Vegetables",
+                    UniqueId = Guid.NewGuid()
+                }, System.Threading.CancellationToken.None);
+
+            categoriesRepo.CreateCategory(
+                new Category()
+                {
+                    CategoryName = "Liquor",
+                    UniqueId = Guid.NewGuid()
+                }, System.Threading.CancellationToken.None);
+
+            categoriesRepo.CreateCategory(
+                new Category()
+                {
+                    CategoryName = "Cakes",
+                    UniqueId = Guid.NewGuid()
+                }, System.Threading.CancellationToken.None);
+
+            categoriesRepo.CreateCategory(
+                new Category()
+                {
+                    CategoryName = "Cake mixes",
+                    UniqueId = Guid.NewGuid()
+                }, System.Threading.CancellationToken.None);
+
             var allCategories = categoriesRepo.GetCategories(System.Threading.CancellationToken.None).Result;
 
             recipesRepo.CreateRecipe(
@@ -94,6 +129,174 @@ namespace RecipesService.Application.Extensions
                                     IngredientContent = "Hot pepper sauce; to taste",
                                     Quantity = string.Empty,
                                     Unit = string.Empty
+                                }
+                            }
+                        }
+                    }
+                }, System.Threading.CancellationToken.None);
+
+            recipesRepo.CreateRecipe(
+                new Recipe()
+                {
+                    UniqueId = Guid.NewGuid(),
+                    Title = "Amaretto Cake",
+                    Directions = "text_of_directions_steps",
+                    Categories = new List<Guid>()
+                    {
+                        allCategories.Single(t => t.CategoryName == "Liquor").UniqueId,
+                        allCategories.Single(t => t.CategoryName == "Cakes").UniqueId,
+                        allCategories.Single(t => t.CategoryName == "Cake mixes").UniqueId
+                    },
+                    RecipeParts = new List<RecipePart>()
+                    {
+                        new RecipePart()
+                        {
+                            PartName = "",
+                            Ingredients = new List<Ingredient>
+                            {
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Toasted Almonds; chopped",
+                                    Quantity = "1 1/2",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Yellow cake mix; no pudding",
+                                    Quantity = "1",
+                                    Unit = "package"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Vanilla instant pudding",
+                                    Quantity = "1",
+                                    Unit = "package"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Eggs",
+                                    Quantity = "4",
+                                    Unit = string.Empty
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Vegetable oil",
+                                    Quantity = "1/2",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Water",
+                                    Quantity = "1/2",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Amaretto",
+                                    Quantity = "1/2",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Almond extract",
+                                    Quantity = "1",
+                                    Unit = "teaspoon"
+                                }
+                            }
+                        },
+                        new RecipePart()
+                        {
+                            PartName = "GLAZE",
+                            Ingredients = new List<Ingredient>
+                            {
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Sugar",
+                                    Quantity = "1/2",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Water",
+                                    Quantity = "1/4",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Butter",
+                                    Quantity = "2",
+                                    Unit = "tablespoons"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Amaretto",
+                                    Quantity = "1/4",
+                                    Unit = "cups"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Almond extract",
+                                    Quantity = "1/2",
+                                    Unit = "teaspoons"
+                                }
+                            }
+                        }
+                    }
+                }, System.Threading.CancellationToken.None);
+
+            recipesRepo.CreateRecipe(
+                new Recipe()
+                {
+                    UniqueId = Guid.NewGuid(),
+                    Title = "Another Zucchini Dish",
+                    Directions = "text_of_directions_steps",
+                    Categories = new List<Guid>()
+                    {
+                        allCategories.Single(t => t.CategoryName == "Microwave").UniqueId,
+                        allCategories.Single(t => t.CategoryName == "Vegetables").UniqueId
+                    },
+                    RecipeParts = new List<RecipePart>()
+                    {
+                        new RecipePart()
+                        {
+                            PartName = "",
+                            Ingredients = new List<Ingredient>
+                            {
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Zucchini; cubed 1/2",
+                                    Quantity = "1",
+                                    Unit = "pound"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Butter or margarine",
+                                    Quantity = "3",
+                                    Unit = "tablespoons"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Eggs; beaten",
+                                    Quantity = "3",
+                                    Unit = string.Empty
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Jar pimentos; 2 1/2 oz, diced",
+                                    Quantity = "1",
+                                    Unit = string.Empty
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "Cheddar cheese; shredded",
+                                    Quantity = "1",
+                                    Unit = "cup"
+                                },
+                                new Ingredient()
+                                {
+                                    IngredientContent = "French fried onion rings 3 oz.",
+                                    Quantity = "1",
+                                    Unit = "can"
                                 }
                             }
                         }
