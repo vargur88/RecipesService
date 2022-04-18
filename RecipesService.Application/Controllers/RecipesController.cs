@@ -7,9 +7,9 @@ namespace RecipesService.Application.Controllers
 	public class RecipesController : BaseApiController
 	{
 		[HttpGet]
-		public async Task<IActionResult> GetRecipes(/*[FromBody]GetRecipesRequest request*/)
+		public async Task<IActionResult> GetRecipes([FromQuery] GetRecipesRequest request)
 		{
-			var response = await Mediator.Send(new GetRecipesRequest());
+			var response = await Mediator.Send(request);
 			if (response == null)
 			{
 				return NoContent();
