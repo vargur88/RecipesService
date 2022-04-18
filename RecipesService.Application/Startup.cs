@@ -8,6 +8,8 @@ using MediatR;
 using RecipesService.Handlers.GetRecipes;
 using RecipesService.Repository.Interfaces;
 using RecipesService.Repository.InMemoryRepository;
+using FluentValidation.AspNetCore;
+using RecipesService.Handlers.Recipes.GetRecipes;
 
 namespace RecipesService.Application
 {
@@ -16,13 +18,13 @@ namespace RecipesService.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().AddApiExplorer();
+
             services.AddSingleton<IRecipesRepository, RecipesRepositoryInMemory>();
+
+            services.AddFluentValidation(t => t.RegisterValidatorsFromAssemblyContaining<GetRecipesRequestValidator>());
             services.AddMediatR(typeof(GetRecipesHandler).Assembly);
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = Assembly.GetExecutingAssembly().GetName().Name, Version = "v1" });
-            });
+            services.AddSwaggerGen(t => t.SwaggerDoc("v1", new OpenApiInfo { Title = Assembly.GetExecutingAssembly().GetName().Name, Version = "v1" }));
             services.AddSwaggerGenNewtonsoftSupport();
         }
 
