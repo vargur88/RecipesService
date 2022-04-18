@@ -10,6 +10,7 @@ using RecipesService.Repository.Interfaces;
 using RecipesService.Repository.InMemoryRepository;
 using FluentValidation.AspNetCore;
 using RecipesService.Handlers.Recipes.GetRecipes;
+using RecipesService.Application.Extensions;
 
 namespace RecipesService.Application
 {
@@ -19,13 +20,16 @@ namespace RecipesService.Application
         {
             services.AddMvcCore().AddApiExplorer();
 
-            services.AddSingleton<IRecipesRepository, RecipesRepositoryInMemory>();
+            services.AddSingleton<IRecipesRepository, RecipesInMemoryRepository>();
+            services.AddSingleton<ICategoriesRepository, CategoriesInMemoryRepository>();
 
             services.AddFluentValidation(t => t.RegisterValidatorsFromAssemblyContaining<GetRecipesRequestValidator>());
             services.AddMediatR(typeof(GetRecipesHandler).Assembly);
 
             services.AddSwaggerGen(t => t.SwaggerDoc("v1", new OpenApiInfo { Title = Assembly.GetExecutingAssembly().GetName().Name, Version = "v1" }));
             services.AddSwaggerGenNewtonsoftSupport();
+
+            services.InitData();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
