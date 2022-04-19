@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using RecipesService.Domain.Entities;
-using System;
 
 namespace RecipesService.Handlers.GetRecipes
 {

@@ -8,6 +8,7 @@ namespace RecipesService.Repository.Interfaces
 	public interface ICategoriesRepository
 	{
 		Task<IList<Category>> GetCategories(CancellationToken cancellationToken);
-		Task CreateCategory(Category recipe, CancellationToken cancellationToken);
+		Task CreateCategory(Category category, CancellationToken cancellationToken);
+		Task<Category> FindCategory(string categoryName, CancellationToken cancellationToken);
 	}
 }
