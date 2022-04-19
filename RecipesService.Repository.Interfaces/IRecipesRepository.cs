@@ -9,5 +9,6 @@ namespace RecipesService.Repository.Interfaces
 	{
 		Task<IList<Recipe>> GetRecipes(CancellationToken cancellationToken);
 		Task CreateRecipe(Recipe recipe, CancellationToken cancellationToken);
+		Task<Recipe> FindRecipe(string title, CancellationToken cancellationToken);
 	}
 }
