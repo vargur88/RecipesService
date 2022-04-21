@@ -9,8 +9,8 @@ namespace RecipesService.Handlers.Recipes.GetRecipes
         public GetRecipesRequestValidator()
         {
             RuleFor(t => t.CategoryId)
-                .Must(t => t != Guid.Empty)
-                .When(t => t.CategoryId != null)
+                .Must(t => Guid.TryParse(t, out _) == true)
+                .When(t => t.CategoryId != null && t.CategoryId != "null")
                 .WithMessage("Wrong Category identifier");
 
             RuleFor(t => t.SearchString)

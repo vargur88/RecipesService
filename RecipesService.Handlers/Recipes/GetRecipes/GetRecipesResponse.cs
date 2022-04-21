@@ -12,6 +12,8 @@ namespace RecipesService.Handlers.Recipes.GetRecipes
 
         public string Directions { get; set; }
 
+        public string Yield { get; set; }
+
         public IList<string> Categories { get; set; }
 
         public IList<RecipePart> RecipeParts { get; set; }

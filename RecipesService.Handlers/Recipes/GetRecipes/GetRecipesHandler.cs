@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using RecipesService.Domain.Entities;
+using System;
 
 namespace RecipesService.Handlers.GetRecipes
 {
@@ -25,9 +26,11 @@ namespace RecipesService.Handlers.GetRecipes
             var recipes = await _recipesRepository.GetRecipes(cancellationToken);
             var categories = await _categoriesRepository.GetCategories(cancellationToken);
 
-            if (request.CategoryId.HasValue)
+            if (string.IsNullOrEmpty(request.CategoryId) == false && request.CategoryId != "null")
             {
-                var searchCategory = categories.SingleOrDefault(t => t.UniqueId == request.CategoryId);
+                var guid = Guid.Parse(request.CategoryId);
+
+                var searchCategory = categories.SingleOrDefault(t => t.UniqueId == guid);
                 return ToResponse(recipes.Where(t => t.Categories.Any(k => k == searchCategory.UniqueId)), categories);
             }
 
@@ -47,6 +50,7 @@ namespace RecipesService.Handlers.GetRecipes
                 UniqueId = t.UniqueId,
                 Title = t.Title,
                 Directions = t.Directions,
+                Yield = t.Yield,
                 RecipeParts = t.RecipeParts,
                 Categories = categories.Where(k => t.Categories.Any(r => r == k.UniqueId)).Select(t => t.CategoryName).ToList()
             }).ToList();

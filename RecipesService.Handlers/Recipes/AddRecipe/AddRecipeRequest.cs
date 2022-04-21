@@ -9,6 +9,8 @@ namespace RecipesService.Handlers.Recipes.AddRecipe
 
         public string Directions { get; set; }
 
+        public string Yield { get; set; }
+
         public List<string> Categories { get; set; }
 
         public List<RecipePartRequest> RecipeParts { get; set; }

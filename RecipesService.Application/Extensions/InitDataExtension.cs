@@ -76,6 +76,7 @@ namespace RecipesService.Application.Extensions
                     UniqueId = Guid.NewGuid(),
                     Title = "30 Minute Chili",
                     Directions = "text_of_directions_steps",
+                    Yield = "6",
                     Categories = new List<Guid>()
                     {
                         allCategories.Single(t => t.CategoryName == "Main dish").UniqueId,
@@ -141,6 +142,7 @@ namespace RecipesService.Application.Extensions
                     UniqueId = Guid.NewGuid(),
                     Title = "Amaretto Cake",
                     Directions = "text_of_directions_steps",
+                    Yield = "1",
                     Categories = new List<Guid>()
                     {
                         allCategories.Single(t => t.CategoryName == "Liquor").UniqueId,
@@ -250,6 +252,7 @@ namespace RecipesService.Application.Extensions
                     UniqueId = Guid.NewGuid(),
                     Title = "Another Zucchini Dish",
                     Directions = "text_of_directions_steps",
+                    Yield = "6",
                     Categories = new List<Guid>()
                     {
                         allCategories.Single(t => t.CategoryName == "Microwave").UniqueId,
