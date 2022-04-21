@@ -20,5 +20,5 @@ docker run -p 9091:80 -d --rm rs-test
 swagger on address: 'http://localhost:9091/swagger'
 
 
-##Mendix app via MX Studio Pro 9
+## Mendix app via MX Studio Pro 9
 Open file RecipesService.mpr at RecipesServiceMendix folder and press button 'Run locally'
