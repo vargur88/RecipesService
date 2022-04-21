@@ -47,6 +47,7 @@ namespace RecipesService.Handlers.Recipes.AddRecipe
                     UniqueId = Guid.NewGuid(),
                     Title = request.Title,
                     Directions = request.Directions,
+                    Yield = request.Yield,
                     Categories = categories.Select(t => t.UniqueId).ToList(),
                     RecipeParts = request.RecipeParts
                         .Select(t => new RecipePart() 

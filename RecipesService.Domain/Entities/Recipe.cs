@@ -9,6 +9,8 @@ namespace RecipesService.Domain.Entities
 
         public string Title { get; set; }
 
+        public string Yield { get; set; }
+
         public string Directions { get; set; }
 
         public IList<Guid> Categories { get; set; }

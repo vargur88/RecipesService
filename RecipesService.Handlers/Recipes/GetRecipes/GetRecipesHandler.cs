@@ -47,6 +47,7 @@ namespace RecipesService.Handlers.GetRecipes
                 UniqueId = t.UniqueId,
                 Title = t.Title,
                 Directions = t.Directions,
+                Yield = t.Yield,
                 RecipeParts = t.RecipeParts,
                 Categories = categories.Where(k => t.Categories.Any(r => r == k.UniqueId)).Select(t => t.CategoryName).ToList()
             }).ToList();

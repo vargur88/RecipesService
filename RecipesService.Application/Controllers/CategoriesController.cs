@@ -8,7 +8,7 @@ namespace RecipesService.Application.Controllers
     public class CategoriesController : BaseApiController
     {
 		[HttpGet]
-		public async Task<IActionResult> GetRecipes([FromQuery] GetCategoriesRequest request, CancellationToken cancellationToken)
+		public async Task<IActionResult> GetCategories([FromQuery] GetCategoriesRequest request, CancellationToken cancellationToken)
 		{
 			var response = await Mediator.Send(request, cancellationToken);
 			if (response == null)
