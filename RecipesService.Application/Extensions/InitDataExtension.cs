@@ -86,7 +86,7 @@ namespace RecipesService.Application.Extensions
                     {
                         new RecipePart()
                         {
-                            PartName = "",
+                            PartName = "Main dish",
                             Ingredients = new List<Ingredient>
                             {
                                 new Ingredient()
@@ -153,7 +153,7 @@ namespace RecipesService.Application.Extensions
                     {
                         new RecipePart()
                         {
-                            PartName = "",
+                            PartName = "Main dish",
                             Ingredients = new List<Ingredient>
                             {
                                 new Ingredient()
@@ -208,7 +208,7 @@ namespace RecipesService.Application.Extensions
                         },
                         new RecipePart()
                         {
-                            PartName = "GLAZE",
+                            PartName = "Glaze",
                             Ingredients = new List<Ingredient>
                             {
                                 new Ingredient()
@@ -262,7 +262,7 @@ namespace RecipesService.Application.Extensions
                     {
                         new RecipePart()
                         {
-                            PartName = "",
+                            PartName = "Main dish",
                             Ingredients = new List<Ingredient>
                             {
                                 new Ingredient()
