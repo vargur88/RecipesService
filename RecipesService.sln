@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.Application", "RecipesService.Application\RecipesService.Application.csproj", "{ABCE60A0-51C8-4691-987D-FD2457CF3051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesService.Application", "RecipesService.Application\RecipesService.Application.csproj", "{ABCE60A0-51C8-4691-987D-FD2457CF3051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.Domain", "RecipesService.Domain\RecipesService.Domain.csproj", "{413EBB19-4481-4518-9693-C0E09BDCC84E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesService.Domain", "RecipesService.Domain\RecipesService.Domain.csproj", "{413EBB19-4481-4518-9693-C0E09BDCC84E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.Handlers", "RecipesService.Handlers\RecipesService.Handlers.csproj", "{CE10F200-589D-4512-B794-99ED75C0B34D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesService.Handlers", "RecipesService.Handlers\RecipesService.Handlers.csproj", "{CE10F200-589D-4512-B794-99ED75C0B34D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.Repository.Interfaces", "RecipesService.Repository.Interfaces\RecipesService.Repository.Interfaces.csproj", "{3314F8EA-EFF9-4962-9D60-F6B62E820690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesService.Repository.Interfaces", "RecipesService.Repository.Interfaces\RecipesService.Repository.Interfaces.csproj", "{3314F8EA-EFF9-4962-9D60-F6B62E820690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.Repository", "RecipesService.Repository\RecipesService.Repository.csproj", "{2FFD0A14-E0AC-4596-8AD2-F676D9FF0D53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesService.Repository", "RecipesService.Repository\RecipesService.Repository.csproj", "{2FFD0A14-E0AC-4596-8AD2-F676D9FF0D53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0623A56D-49F4-4465-BEE7-E22755C5856F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.UnitTests.Repository", "RecipesService.UnitTests.Repository\RecipesService.UnitTests.Repository.csproj", "{05EE1CA3-7A78-4526-B6F8-5B6076755F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.UnitTests.Handlers", "RecipesService.UnitTests.Handlers\RecipesService.UnitTests.Handlers.csproj", "{AA71CD06-8B7A-4865-8403-205AC0140384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +45,21 @@ Global
 		{2FFD0A14-E0AC-4596-8AD2-F676D9FF0D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FFD0A14-E0AC-4596-8AD2-F676D9FF0D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FFD0A14-E0AC-4596-8AD2-F676D9FF0D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05EE1CA3-7A78-4526-B6F8-5B6076755F53} = {0623A56D-49F4-4465-BEE7-E22755C5856F}
+		{AA71CD06-8B7A-4865-8403-205AC0140384} = {0623A56D-49F4-4465-BEE7-E22755C5856F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB25ADEF-C88F-40D4-A140-4DAAE3AE83D3}
