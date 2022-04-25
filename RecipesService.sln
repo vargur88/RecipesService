@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0623A56D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.UnitTests.Repository", "RecipesService.UnitTests.Repository\RecipesService.UnitTests.Repository.csproj", "{05EE1CA3-7A78-4526-B6F8-5B6076755F53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesService.UnitTests.Handlers", "RecipesService.UnitTests.Handlers\RecipesService.UnitTests.Handlers.csproj", "{AA71CD06-8B7A-4865-8403-205AC0140384}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,12 +49,17 @@ Global
 		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05EE1CA3-7A78-4526-B6F8-5B6076755F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA71CD06-8B7A-4865-8403-205AC0140384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{05EE1CA3-7A78-4526-B6F8-5B6076755F53} = {0623A56D-49F4-4465-BEE7-E22755C5856F}
+		{AA71CD06-8B7A-4865-8403-205AC0140384} = {0623A56D-49F4-4465-BEE7-E22755C5856F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB25ADEF-C88F-40D4-A140-4DAAE3AE83D3}

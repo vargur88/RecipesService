@@ -10,7 +10,7 @@ using System;
 
 namespace RecipesService.Handlers.GetRecipes
 {
-    public sealed class GetRecipesHandler : IRequestHandler<GetRecipesRequest, IReadOnlyList<GetRecipesResponse>>
+    public sealed class GetRecipesHandler : IRequestHandler<GetRecipesRequest, GetRecipesResponse>
     {
         private readonly IRecipesRepository _recipesRepository;
         private readonly ICategoriesRepository _categoriesRepository;
@@ -21,7 +21,7 @@ namespace RecipesService.Handlers.GetRecipes
             _categoriesRepository = categoriesRepository;
         }
 
-        public async Task<IReadOnlyList<GetRecipesResponse>> Handle(GetRecipesRequest request, CancellationToken cancellationToken)
+        public async Task<GetRecipesResponse> Handle(GetRecipesRequest request, CancellationToken cancellationToken)
         {
             var recipes = await _recipesRepository.GetRecipes(cancellationToken);
             var categories = await _categoriesRepository.GetCategories(cancellationToken);
@@ -29,31 +29,43 @@ namespace RecipesService.Handlers.GetRecipes
             if (string.IsNullOrEmpty(request.CategoryId) == false && request.CategoryId != "null")
             {
                 var guid = Guid.Parse(request.CategoryId);
-
                 var searchCategory = categories.SingleOrDefault(t => t.UniqueId == guid);
-                return ToResponse(recipes.Where(t => t.Categories.Any(k => k == searchCategory.UniqueId)), categories);
+
+                if (searchCategory== null)
+                {
+                    return await Task.FromResult(new GetRecipesResponse() { Error = "Recipes with given category not found" });
+                }
+
+                return ToResponse(recipes.Where(t => t.Categories.Any(k => k == searchCategory?.UniqueId)), categories);
             }
 
             if (string.IsNullOrEmpty(request.SearchString) == false)
             {
                 recipes = ApplySearchString(recipes, categories, request.SearchString.ToLower());
+                if (recipes.Count == 0)
+                {
+                    return await Task.FromResult(new GetRecipesResponse() { Error = "Recipes with given search string not found" });
+                }
                 return ToResponse(recipes, categories);
             }
 
             return ToResponse(recipes, categories);
         }
 
-        private IReadOnlyList<GetRecipesResponse> ToResponse(IEnumerable<Recipe> recipes, IList<Category> categories)
+        private GetRecipesResponse ToResponse(IEnumerable<Recipe> recipes, IList<Category> categories)
         {
-            return recipes.Select(t => new GetRecipesResponse()
+            return new GetRecipesResponse()
             {
-                UniqueId = t.UniqueId,
-                Title = t.Title,
-                Directions = t.Directions,
-                Yield = t.Yield,
-                RecipeParts = t.RecipeParts,
-                Categories = categories.Where(k => t.Categories.Any(r => r == k.UniqueId)).Select(t => t.CategoryName).ToList()
-            }).ToList();
+                ResponseData = recipes.Select(t => new GetRecipesResponseInner()
+                {
+                    UniqueId = t.UniqueId,
+                    Title = t.Title,
+                    Directions = t.Directions,
+                    Yield = t.Yield,
+                    RecipeParts = t.RecipeParts,
+                    Categories = categories.Where(k => t.Categories.Any(r => r == k.UniqueId)).Select(t => t.CategoryName).ToList()
+                }).ToList()
+            };
         }
 
         private IList<Recipe> ApplySearchString(IList<Recipe> recipes, IList<Category> categories, string searchString)

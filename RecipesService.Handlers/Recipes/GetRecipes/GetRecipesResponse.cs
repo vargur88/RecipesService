@@ -4,7 +4,12 @@ using System.Collections.Generic;
 
 namespace RecipesService.Handlers.Recipes.GetRecipes
 {
-    public sealed class GetRecipesResponse
+    public sealed class GetRecipesResponse : BaseResponse
+    {
+        public IList<GetRecipesResponseInner> ResponseData { get; set; }
+    }
+
+    public sealed class GetRecipesResponseInner
     {
         public Guid UniqueId { get; set; }
 
